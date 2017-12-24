@@ -1,0 +1,45 @@
+"*":
+  "atom-beautify":
+    html:
+      indent_size: 2
+  "browser-plus":
+    currentFile: false
+  core:
+    disabledPackages: [
+      "language-gfm"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "city-lights-syntax"
+    ]
+    excludeVcsIgnoredPaths: false
+    ignoredNames: [
+      ".hg"
+      ".svn"
+      ".DS_Store"
+      "._*"
+      "Thumbs.db"
+      "desktop.ini"
+    ]
+    openEmptyEditorOnStart: false
+  editor:
+    invisibles: {}
+    preferredLineLength: 100
+    scrollSensitivity: 50
+    showIndentGuide: true
+    softWrap: true
+    showInvisibles: true
+    softWrapAtPreferredLineLength: true
+    softWrapHangingIndent: 2
+    tabType: "soft"
+  "linter-ui-default":
+    showPanel: true
+  welcome:
+    showOnStartup: false
+".python.regexp.source":
+  editor:
+    tabLength: 2
+".python.source":
+  editor:
+    tabLength: 2
