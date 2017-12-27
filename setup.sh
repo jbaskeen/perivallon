@@ -215,6 +215,7 @@ declare -a atoms=(
   "linter-luacheck"
   "linter-js-yaml"
   "linter-shellcheck"
+  "linter-travis-lint"
   "linter-ui-default"
   "minimap"
   "python-indent"
