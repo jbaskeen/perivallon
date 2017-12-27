@@ -216,6 +216,7 @@ declare -a atoms=(
   "linter-js-yaml"
   "linter-shellcheck"
   "linter-ui-default"
+  "minimap"
   "python-indent"
   "react-es6-snippets"
   "react-es7-snippets"
