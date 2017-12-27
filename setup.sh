@@ -112,6 +112,7 @@ declare -a brewskies=(
   "watchman"
   "webpack"
   "wget"
+  "xctool"
   "zsh"
 )
 
