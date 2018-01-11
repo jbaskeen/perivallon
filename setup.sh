@@ -113,6 +113,7 @@ declare -a brewskies=(
   "webpack"
   "wget"
   "xctool"
+  "yarn"
   "zsh"
 )
 
