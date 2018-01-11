@@ -4,4 +4,5 @@ Greek n. περιβάλλον • (perivállon) n (plural περιβάλλοντ
 
 ## Setup a new workstation
 
-`$ sudo bash -c "$(curl -fsSL https://raw.github.com/jbaskeen/perivallon/master/setup)"`
+1. Clone this repo `$ git clone git@github.com:jbaskeen/perivallon.git && cd perivallon`
+2. Run `./setup.sh`

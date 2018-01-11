@@ -49,11 +49,9 @@ cat $HOME/.ssh/id_rsa.pub
 
 read -p "Add the ssh key to your GitHub profile and press enter when complete"
 
-# Create dev dir structure and clone env repo
+# Create dev dir structure
 mkdir $HOME/Developer && mkdir $HOME/Developer/GitHub
 cd $HOME/Developer/GitHub
-
-git clone git@github.com:jbaskeen/perivallon.git && cd perivallon
 
 # list available software updates
 softwareupdate -l
