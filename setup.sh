@@ -38,6 +38,8 @@ control_c()
 # trap keyboard interrupt (control-c)
 trap control_c SIGINT
 
+wd=$(pwd)
+
 # Create an ssh key for github
 ssh-keygen -t rsa -b 4096 -C "$github_email"
 eval "$(ssh-agent -s)"
@@ -180,7 +182,7 @@ rm -rf node_modules
 sed -i '' "s^npmi@2.0.1^npmi@1.0.1^g" package.json
 npm i
 
-cd ~
+cd $wd
 
 gitbook fetch 3.2.2
 cd $HOME/.gitbook/versions/3.2.2/
@@ -240,11 +242,6 @@ for nucleus in "${atoms[@]}"; do
   apm install "$nucleus"
 done
 
-cp -f ./configs/atom.config.cson $HOME/.atom/config.cson
-
-# Move dotfiles
-cp -Rf ./dotfiles/. $HOME/
-
 # Install powerline fonts
 cd $HOME/Developer/GitHub
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -253,14 +250,21 @@ cd fonts
 cd ..
 rm -rf fonts
 
-# Android ಠ_ಠ
-android update sdk --no-ui
+cd $wd
 
-# iTerm2
-mkdir $HOME/.iTerm2
+# Move Atom config
+cp -f ./configs/atom.config.cson $HOME/.atom/config.cson
+
+# Move dotfiles
+cp -Rf ./dotfiles/. $HOME/
+
+# iTerm2 config
 cp ./configs/iTerm2.preferences $HOME/.iTerm2/
 
-# zsh
+# zsh install/setup
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+mkdir $HOME/.oh-my-zsh/custom/themes/
 cp ./configs/agnostik.zsh-theme $HOME/.oh-my-zsh/custom/themes/
 
 # Setup completed
