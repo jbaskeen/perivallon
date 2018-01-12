@@ -99,6 +99,7 @@ declare -a casks=(
 )
 
 for casket in "${casks[@]}"; do
+  echo "installing casket $casket"
   brew cask install "$casket"
 done
 
@@ -148,6 +149,7 @@ declare -a brewskies=(
 )
 
 for cold_one in "${brewskies[@]}"; do
+  echo "installing brewsky $cold_one"
   brew install "$cold_one"
 done
 
