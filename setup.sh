@@ -63,9 +63,9 @@ open -a Xcode
 
 read -p "Xcode has been opened to ensure CLI tools are installed. If you're promopted to install Xcode tools do so then press Enter when complete"
 
-chown -R "`whoami`":admin /usr/local/bin
-chown -R "`whoami`":admin /usr/local/share
-chown -R "`whoami`":admin /usr/local/include
+sudo chown -R "`whoami`":admin /usr/local/bin
+sudo chown -R "`whoami`":admin /usr/local/share
+sudo chown -R "`whoami`":admin /usr/local/include
 
 # Install brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
