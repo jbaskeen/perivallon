@@ -135,6 +135,7 @@ declare -a casks=(
   "java"
   "minikube"
   "postman"
+  "skype"
   "slack"
   "virtualbox"
   "vlc"
