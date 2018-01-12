@@ -169,6 +169,9 @@ npm install -g create-react-native-app
 # gitbook-cli init b/c it's PoS
 npm i -g gitbook-cli@2.3.1
 
+# n node version manager
+npm install -g n
+
 cd /usr/local/lib/node_modules/gitbook-cli
 rm -rf node_modules
 sed -i '' "s^npmi@2.0.1^npmi@1.0.1^g" package.json
