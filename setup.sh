@@ -124,6 +124,7 @@ declare -a casks=(
   "1password"
   "atom"
   "android-studio"
+  "dbvisualizer"
   "docker-toolbox"
   "docker"
   "dropbox"
