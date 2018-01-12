@@ -71,6 +71,34 @@ sudo chown -R "`whoami`":admin /usr/local/include
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew --version
 
+brew tap caskroom/cask
+
+declare -a casks=(
+  "1password"
+  "atom"
+  "android-studio"
+  "dbvisualizer"
+  "docker-toolbox"
+  "docker"
+  "dropbox"
+  "firefox"
+  "google-chrome"
+  "insomnia"
+  "intel-haxm"
+  "iterm2"
+  "java"
+  "minikube"
+  "postman"
+  "skype"
+  "slack"
+  "virtualbox"
+  "vlc"
+)
+
+for casket in "${casks[@]}"; do
+  brew cask install "$casket"
+done
+
 # Install brew packages
 declare -a brewskies=(
   "ack"
@@ -118,34 +146,6 @@ declare -a brewskies=(
 
 for cold_one in "${brewskies[@]}"; do
   brew install "$cold_one"
-done
-
-brew tap caskroom/cask
-
-declare -a casks=(
-  "1password"
-  "atom"
-  "android-studio"
-  "dbvisualizer"
-  "docker-toolbox"
-  "docker"
-  "dropbox"
-  "firefox"
-  "google-chrome"
-  "insomnia"
-  "intel-haxm"
-  "iterm2"
-  "java"
-  "minikube"
-  "postman"
-  "skype"
-  "slack"
-  "virtualbox"
-  "vlc"
-)
-
-for casket in "${casks[@]}"; do
-  brew cask install "$casket"
 done
 
 # Update bash
