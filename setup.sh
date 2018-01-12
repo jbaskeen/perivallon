@@ -63,6 +63,7 @@ open -a Xcode
 
 read -p "Xcode has been opened to ensure CLI tools are installed. If you're promopted to install Xcode tools do so then press Enter when complete"
 
+sudo chown -R "`whoami`":admin /usr/local/
 sudo chown -R "`whoami`":admin /usr/local/bin
 sudo chown -R "`whoami`":admin /usr/local/share
 sudo chown -R "`whoami`":admin /usr/local/include
