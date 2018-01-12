@@ -153,11 +153,6 @@ for cold_one in "${brewskies[@]}"; do
   brew install "$cold_one"
 done
 
-# Update bash
-sudo -s
-echo /usr/local/bin/bash >> /etc/shells
-chsh -s /usr/local/bin/bash
-
 # Install custom gems
 which gem
 sudo gem update --system
