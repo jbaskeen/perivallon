@@ -81,6 +81,7 @@ declare -a brewskies=(
   "automake"
   "babel"
   "bash"
+  "bash-completion"
   "cask"
   "gawk"
   "git"
@@ -240,7 +241,7 @@ done
 cp -f ./configs/atom.config.cson $HOME/.atom/config.cson
 
 # Move dotfiles
-cp -R ./dotfiles/. $HOME/
+cp -Rf ./dotfiles/. $HOME/
 
 # Install powerline fonts
 cd $HOME/Developer/GitHub
