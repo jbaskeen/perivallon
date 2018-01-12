@@ -89,6 +89,7 @@ declare -a casks=(
   "iterm2"
   "java7"
   "java8"
+  "jenv"
   "minikube"
   "postman"
   "skype"
