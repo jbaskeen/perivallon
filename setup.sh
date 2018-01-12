@@ -72,6 +72,7 @@ sudo chown -R "`whoami`":admin /usr/local/include
 brew --version
 
 brew tap caskroom/cask
+brew tap caskroom/versions
 
 declare -a casks=(
   "1password"
@@ -86,7 +87,8 @@ declare -a casks=(
   "insomnia"
   "intel-haxm"
   "iterm2"
-  "java"
+  "java7"
+  "java8"
   "minikube"
   "postman"
   "skype"
