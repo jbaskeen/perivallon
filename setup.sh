@@ -82,7 +82,6 @@ declare -a brewskies=(
   "babel"
   "bash"
   "bash-completion"
-  "cask"
   "gawk"
   "git"
   "gnu-sed"
@@ -120,6 +119,8 @@ declare -a brewskies=(
 for cold_one in "${brewskies[@]}"; do
   brew install "$cold_one"
 done
+
+brew tap caskroom/cask
 
 declare -a casks=(
   "1password"
