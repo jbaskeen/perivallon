@@ -113,6 +113,7 @@ declare -a brewskies=(
   "xctool"
   "yarn"
   "zsh"
+  "zsh-completions"
 )
 
 for cold_one in "${brewskies[@]}"; do
