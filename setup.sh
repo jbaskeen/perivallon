@@ -38,6 +38,8 @@ control_c()
 # trap keyboard interrupt (control-c)
 trap control_c SIGINT
 
+wd=$(pwd)
+
 # Create an ssh key for github
 ssh-keygen -t rsa -b 4096 -C "$github_email"
 eval "$(ssh-agent -s)"
@@ -63,6 +65,7 @@ sudo xcodebuild -license
 
 read -p "Xcode has been opened to ensure CLI tools are installed. If you're promopted to install Xcode tools do so then press Enter when complete"
 
+sudo chown -R "`whoami`":admin /usr/local/
 sudo chown -R "`whoami`":admin /usr/local/bin
 sudo chown -R "`whoami`":admin /usr/local/share
 sudo chown -R "`whoami`":admin /usr/local/include
@@ -70,6 +73,38 @@ sudo chown -R "`whoami`":admin /usr/local/include
 # Install brew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew --version
+
+brew tap caskroom/cask
+brew tap caskroom/versions
+
+declare -a casks=(
+  "1password"
+  "atom"
+  "android-studio"
+  "dbvisualizer"
+  "docker-toolbox"
+  "docker"
+  "dropbox"
+  "firefox"
+  "google-chrome"
+  "insomnia"
+  "intel-haxm"
+  "iterm2"
+  "java7"
+  "java8"
+  "jenv"
+  "minikube"
+  "postman"
+  "skype"
+  "slack"
+  "virtualbox"
+  "vlc"
+)
+
+for casket in "${casks[@]}"; do
+  echo "installing casket $casket"
+  brew cask install "$casket"
+done
 
 # Install brew packages
 declare -a brewskies=(
@@ -82,7 +117,6 @@ declare -a brewskies=(
   "babel"
   "bash"
   "bash-completion"
-  "cask"
   "gawk"
   "git"
   "gnu-sed"
@@ -118,39 +152,9 @@ declare -a brewskies=(
 )
 
 for cold_one in "${brewskies[@]}"; do
+  echo "installing brewsky $cold_one"
   brew install "$cold_one"
 done
-
-declare -a casks=(
-  "1password"
-  "atom"
-  "android-studio"
-  "dbvisualizer"
-  "docker-toolbox"
-  "docker"
-  "dropbox"
-  "firefox"
-  "google-chrome"
-  "insomnia"
-  "intel-haxm"
-  "iterm2"
-  "java"
-  "minikube"
-  "postman"
-  "skype"
-  "slack"
-  "virtualbox"
-  "vlc"
-)
-
-for casket in "${casks[@]}"; do
-  brew cask install "$casket"
-done
-
-# Update bash
-sudo -s
-echo /usr/local/bin/bash >> /etc/shells
-chsh -s /usr/local/bin/bash
 
 # Install custom gems
 which gem
@@ -178,7 +182,7 @@ rm -rf node_modules
 sed -i '' "s^npmi@2.0.1^npmi@1.0.1^g" package.json
 npm i
 
-cd ~
+cd $wd
 
 gitbook fetch 3.2.2
 cd $HOME/.gitbook/versions/3.2.2/
@@ -238,11 +242,6 @@ for nucleus in "${atoms[@]}"; do
   apm install "$nucleus"
 done
 
-cp -f ./configs/atom.config.cson $HOME/.atom/config.cson
-
-# Move dotfiles
-cp -Rf ./dotfiles/. $HOME/
-
 # Install powerline fonts
 cd $HOME/Developer/GitHub
 git clone https://github.com/powerline/fonts.git --depth=1
@@ -251,14 +250,21 @@ cd fonts
 cd ..
 rm -rf fonts
 
-# Android ಠ_ಠ
-android update sdk --no-ui
+cd $wd
 
-# iTerm2
-mkdir $HOME/.iTerm2
+# Move Atom config
+cp -f ./configs/atom.config.cson $HOME/.atom/config.cson
+
+# Move dotfiles
+cp -Rf ./dotfiles/. $HOME/
+
+# iTerm2 config
 cp ./configs/iTerm2.preferences $HOME/.iTerm2/
 
-# zsh
+# zsh install/setup
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
+mkdir $HOME/.oh-my-zsh/custom/themes/
 cp ./configs/agnostik.zsh-theme $HOME/.oh-my-zsh/custom/themes/
 
 # Setup completed
