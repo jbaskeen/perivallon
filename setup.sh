@@ -199,6 +199,7 @@ done
 which gem
 sudo gem update --system
 
+sudo gem install neovim
 sudo gem install travis
 
 # Install node version manager
@@ -222,6 +223,8 @@ sed -i '' "s^npmi@2.0.1^npmi@1.0.1^g" package.json
 npm i
 
 cd $wd
+
+npm install -g neovim
 
 gitbook fetch 3.2.2
 cd $HOME/.gitbook/versions/3.2.2/
