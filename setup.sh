@@ -43,7 +43,7 @@ create_ssh_key() {
 
   eval "$(ssh-agent -s)"
   ssh-add -K $2
-  pbcopy < $2å
+  pbcopy < $2
 
   echo "A new ssh key $2 has been copied to the clipboard, printing too just in case"
   cat $2
