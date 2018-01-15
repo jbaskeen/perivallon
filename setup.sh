@@ -2,7 +2,7 @@
 
 # Setup necessary dev tools
 
-set -e
+# set -e
 
 usage() {
   printf "Usage: $0\n \
@@ -58,8 +58,8 @@ softwareupdate -l
 
 # Install xcode cli tools
 sudo xcodebuild -license
-xcode-select --install
-open -a Xcode
+# xcode-select --install
+# open -a Xcode
 
 read -p "Xcode has been opened to ensure CLI tools are installed. If you're promopted to install Xcode tools do so then press Enter when complete"
 
