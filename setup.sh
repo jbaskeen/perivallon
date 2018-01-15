@@ -2,7 +2,7 @@
 
 # Setup necessary dev tools
 
-set -e
+# set -e
 
 usage() {
   printf "Usage: $0\n \
@@ -60,8 +60,8 @@ softwareupdate -l
 
 # Install xcode cli tools
 sudo xcodebuild -license
-xcode-select --install
-open -a Xcode
+# xcode-select --install
+# open -a Xcode
 
 read -p "Xcode has been opened to ensure CLI tools are installed. If you're promopted to install Xcode tools do so then press Enter when complete"
 
@@ -252,6 +252,9 @@ rm -rf fonts
 
 cd $wd
 
+# zsh install/setup
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 # Move Atom config
 cp -f ./configs/atom.config.cson $HOME/.atom/config.cson
 
@@ -260,9 +263,6 @@ cp -Rf ./dotfiles/. $HOME/
 
 # iTerm2 config
 cp ./configs/iTerm2.preferences $HOME/.iTerm2/
-
-# zsh install/setup
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 mkdir $HOME/.oh-my-zsh/custom/themes/
 cp ./configs/agnostik.zsh-theme $HOME/.oh-my-zsh/custom/themes/

@@ -10,7 +10,15 @@ Greek n. περιβάλλον • (perivállon) n (plural περιβάλλοντ
 
 ### Post install
 
-Setup bash
+#### iTerm2
+
+`Perferences -> Profiles -> Text`
+
+Under the `Font` select the checkbox `Use a different font for non-ASCII text`
+
+In the Non-ASCII Font section select the powerline font `ProFont for Powerline`
+
+#### Setup bash
 
 ```
 $ sudo -s
