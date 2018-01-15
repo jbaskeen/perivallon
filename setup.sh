@@ -2,12 +2,10 @@
 
 # Setup necessary dev tools
 
-# set -e
-
 usage() {
   printf "Usage: $0\n \
     [ -h print usage ]\n \
-    [ -e your_github_email@place.tld ]\n"
+    [ -e your_github_email ]\n"
   exit
 }
 
@@ -40,16 +38,40 @@ trap control_c SIGINT
 
 wd=$(pwd)
 
+create_ssh_key() {
+  ssh-keygen -t rsa -b 4096 -C "${1}" -f "${2}"
+
+  eval "$(ssh-agent -s)"
+  ssh-add -K $2
+  pbcopy < $2å
+
+  echo "A new ssh key $2 has been copied to the clipboard, printing too just in case"
+  cat $2
+
+  read -p "Add the ssh key ${2}.pub to your GitHub profile and press enter when complete so the ssh connection can be tested..."
+
+  ssh -T "git@${3}"
+}
+
 # Create an ssh key for github
-ssh-keygen -t rsa -b 4096 -C "$github_email"
-eval "$(ssh-agent -s)"
-ssh-add -K $HOME/.ssh/id_rsa
-pbcopy < $HOME/.ssh/id_rsa.pub
+create_ssh_key "${github_email}" "$HOME/.ssh/id_rsa" "github.com"
 
-echo "A new ssh key has been copied to the clipboard, printing too just in case"
-cat $HOME/.ssh/id_rsa.pub
+# Setup an additional ssh config
+read -p "Would you like to setup a secondary GitHub ssh key [y/n]? " -n 1 -r
+echo
 
-read -p "Add the ssh key to your GitHub profile and press enter when complete"
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+  # Create a secondary ssh key
+  echo "Creating a secondary ssh key file..."
+
+  read -p "Enter the email address: " secondary_email
+  read -p "Enter the location of the secondary key file: " key_file
+  read -p "Enter the host for the secondary ssh connection: " secondary_host
+
+  create_ssh_key "${secondary_email}" "${key_file}" "${secondary_host}"
+fi
+
+echo "ssh config setup completed"
 
 # Create dev dir structure
 mkdir $HOME/Developer && mkdir $HOME/Developer/GitHub
