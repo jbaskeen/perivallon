@@ -12,9 +12,12 @@ Greek n. περιβάλλον • (perivállon) n (plural περιβάλλοντ
 
 #### iTerm2
 
-Open iTerm2 Preferences and select the `custom` profile then select `Other Actions -> Set as Default`
+Open iTerm2 Preferences and select the `custom` profile then select `Other Actions -> Set as Default` then delete the default profile. Next, in the `General` preferences tab select the following options from the `Preferences` section.
 
-Next, set the Powerline font: `Perferences -> Profiles -> Text` then under the `Font` select the checkbox `Use a different font for non-ASCII text`. In the Non-ASCII Font section select the powerline font `ProFont for Powerline`
+1. `Load Preferences from a custom folder or URL` -> `/Users/skeen/Library/Application Support/iTerm2/DynamicProfiles/`
+1. `Saves changes to folder when iTerm2 quits`
+
+Test the changes by quitting iTerm and restarting it.
 
 #### Setup bash
 
