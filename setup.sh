@@ -268,7 +268,15 @@ mkdir $HOME/.oh-my-zsh/custom/themes/
 cp ./configs/agnostik.zsh-theme $HOME/.oh-my-zsh/custom/themes/
 
 # Setup tmux plugin manager
- git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+# Install vim-plug
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+# Link nvim to vim config
+ln -s $HOME/.vim $HOME/.config/nvim
+ln -s $HOME/.vimrc $HOME/.vim/init.vim
 
 # Setup completed
 printf "\n\nSetup completed, the workstation needs to be restarted\n\n"
