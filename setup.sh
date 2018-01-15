@@ -224,8 +224,6 @@ npm i
 
 cd $wd
 
-npm install -g neovim
-
 gitbook fetch 3.2.2
 cd $HOME/.gitbook/versions/3.2.2/
 rm -rf node_modules
@@ -293,6 +291,13 @@ cd ..
 rm -rf fonts
 
 cd $wd
+
+# neovim npm package
+npm install -g neovim
+
+# neovim pip package
+pip2 install neovim
+pip3 install neovim
 
 # zsh install/setup
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
