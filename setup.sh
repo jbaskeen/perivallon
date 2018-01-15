@@ -267,6 +267,9 @@ cp ./configs/com.googlecode.iterm2.plist $HOME/Library/Application\ Support/iTer
 mkdir $HOME/.oh-my-zsh/custom/themes/
 cp ./configs/agnostik.zsh-theme $HOME/.oh-my-zsh/custom/themes/
 
+# Setup tmux plugin manager
+ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
 # Setup completed
 printf "\n\nSetup completed, the workstation needs to be restarted\n\n"
 
