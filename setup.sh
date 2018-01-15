@@ -298,7 +298,7 @@ git config --global hub.host "${hub_host}"
 
 git config --global core.excludesfile "$HOME/.gitignore_global"
 git config --global color.ui "true"
-git config --global alias.incoming "!git remote update -p; git log ..@{u}"
+git config --global alias.incoming '!git remote update -p; git log ..@{u}'
 git config --global alias.outgoing "log @{u}.."
 git config --global alias.hist "log --graph --all --first-parent --decorate --pretty=format:'%C(40)[%h]%Creset %s %Cred%d%Creset %C(23)%an%Creset %C(5)(%ad)%Creset' --date=relative"
 
