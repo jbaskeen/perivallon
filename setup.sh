@@ -278,6 +278,30 @@ curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
 ln -s $HOME/.vim $HOME/.config/nvim
 ln -s $HOME/.vimrc $HOME/.vim/init.vim
 
+# Git config
+git config --global core.editor "nvim"
+
+echo "Add your git global email: "
+read git_email
+
+git config --global user.email "${git_email}"
+
+echo "Add your git global user name: "
+read git_name
+
+git config --global user.name "${git_name}"
+
+echo "Add your git global hub host name (github.com or your github enterprise host): "
+read hub_host
+
+git config --global hub.host "${hub_host}"
+
+git config --global core.excludesfile "$HOME/.gitignore_global"
+git config --global color.ui "true"
+git config --global alias.incoming "!git remote update -p; git log ..@{u}"
+git config --global alias.outgoing "log @{u}.."
+git config --global alias.hist "log --graph --all --first-parent --decorate --pretty=format:'%C(40)[%h]%Creset %s %Cred%d%Creset %C(23)%an%Creset %C(5)(%ad)%Creset' --date=relative"
+
 # Setup completed
 printf "\n\nSetup completed, the workstation needs to be restarted\n\n"
 
