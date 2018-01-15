@@ -23,6 +23,10 @@ Test the changes by quitting iTerm and restarting it.
 
 Open iTerm2 and a new tmux session called `dev` should be loaded. Run prefix + `I` to run the install of the tmux plugins in the conf file. The session should be reloaded after the plugin install completes.
 
+#### nvim
+
+Open `neovim` and run `PluginInstall` to setup all the vim plugins.
+
 #### Setup bash
 
 ```
