@@ -56,6 +56,15 @@ create_ssh_key() {
 # Create an ssh key for github
 create_ssh_key "${github_email}" "$HOME/.ssh/id_rsa" "github.com"
 
+cat > $HOME/.ssh/config << EOL
+# GitHub account
+Host github.com
+  HostName github.com
+  User git
+  IdentityFile $HOME/.ssh/id_rsa
+
+EOL
+
 # Setup an additional ssh config
 read -p "Would you like to setup a secondary GitHub ssh key [y/n]? " -n 1 -r
 echo
@@ -69,9 +78,17 @@ if [[ $REPLY =~ ^[Yy]$ ]]; then
   read -p "Enter the host for the secondary ssh connection: " secondary_host
 
   create_ssh_key "${secondary_email}" "${key_file}" "${secondary_host}"
+
+cat >> $HOME/.ssh/config << EOL
+# GitHub secondary account
+Host $secondary_host
+  HostName $secondary_host
+  User git
+  IdentityFile $key_file
+EOL
 fi
 
-echo "ssh config setup completed"
+echo "ssh config setup completed, moving on..."
 
 # Create dev dir structure
 mkdir $HOME/Developer && mkdir $HOME/Developer/GitHub
