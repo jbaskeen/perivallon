@@ -19,6 +19,10 @@ Open iTerm2 Preferences and select the `custom` profile then select `Other Actio
 
 Test the changes by quitting iTerm and restarting it.
 
+#### tmux
+
+Open iTerm2 and a new tmux session called `dev` should be loaded. Run prefix + `I` to run the install of the tmux plugins in the conf file. The session should be reloaded after the plugin install completes.
+
 #### Setup bash
 
 ```
