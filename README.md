@@ -34,3 +34,7 @@ $ sudo -s
 $ echo /usr/local/bin/bash >> /etc/shells
 $ chsh -s /usr/local/bin/bash
 ```
+
+#### Chrome
+
+(Optional) Start Chrome and sign in as your main user to import bookmarks and extensions automatically.
