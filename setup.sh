@@ -262,7 +262,7 @@ cp -f ./configs/atom.config.cson $HOME/.atom/config.cson
 cp -Rf ./dotfiles/. $HOME/
 
 # iTerm2 config
-cp ./configs/iTerm2.preferences $HOME/.iTerm2/
+cp ./configs/iTerm2.preferences $HOME/Library/Application\ Support/iTerm2/DynamicProfiles/
 
 mkdir $HOME/.oh-my-zsh/custom/themes/
 cp ./configs/agnostik.zsh-theme $HOME/.oh-my-zsh/custom/themes/
