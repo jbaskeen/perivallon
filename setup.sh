@@ -255,6 +255,7 @@ declare -a atoms=(
   "language-dotfiles"
   "language-lua"
   "language-markdown"
+  "language-nginx"
   "language-tmux"
   "language-unix-shell"
   "linter"
