@@ -115,11 +115,13 @@ brew --version
 
 brew tap caskroom/cask
 brew tap caskroom/versions
+brew tap cloudfoundry/tap
 
 declare -a casks=(
   "1password"
   "atom"
   "android-studio"
+  "bluemix-cli"
   "dbvisualizer"
   "docker-toolbox"
   "docker"
@@ -156,6 +158,7 @@ declare -a brewskies=(
   "babel"
   "bash"
   "bash-completion"
+  "cf-cli"
   "gawk"
   "git"
   "gnu-sed"
